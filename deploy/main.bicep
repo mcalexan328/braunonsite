@@ -5,26 +5,22 @@ param appSuffix string = uniqueString(resourceGroup().id)
 param location string = resourceGroup().location
 
 @description('The name of the log analytics workspace')
-param loganalyticsWorkspaceName string = 'log-${appSuffix}'
+param logAnalyticsWorkspaceName string = 'log-${appSuffix}'
 
-@description('The name of the Application Insights Workspace')
+@description('The name of the Application Insights workspace')
 param appInsightsName string = 'appinsights-${appSuffix}'
 
 @description('The name of the Container App Environment')
-param containerAppEnvironmentName string = 'env-${appSuffix}'
+param containerAppEnvironmentName string = 'env${appSuffix}'
 
-var containerAppName = 'Braun'
+var containerAppName = 'hello-world'
 
-resource loganalytics 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
-  name: loganalyticsWorkspaceName
+resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: logAnalyticsWorkspaceName
   location: location
   properties: {
     sku: {
       name: 'PerGB2018'
-    }
-    retentionInDays: 30
-    features: {
-      searchVersion: 1
     }
   }
 }
@@ -45,8 +41,8 @@ resource env 'Microsoft.App/managedEnvironments@2023-08-01-preview' = {
     appLogsConfiguration: {
       destination: 'log-analytics'
       logAnalyticsConfiguration: {
-        customerId: loganalytics.properties.customerId
-        sharedKey: loganalytics.listKeys().primarySharedKey
+        customerId: logAnalytics.properties.customerId
+        sharedKey: logAnalytics.listKeys().primarySharedKey
       }
     }
   }
