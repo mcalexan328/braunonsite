@@ -14,7 +14,6 @@ permissions:
 
 env:
     AZURE_RESOURCEGROUP_NAME: braunonsite
-    ENVIRONMENT: nonprod
 
 jobs:
   deploy:
