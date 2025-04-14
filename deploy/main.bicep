@@ -15,7 +15,7 @@ param containerAppEnvironmentName string = 'env-${appSuffix}'
 
 var containerAppName = 'Braun'
 
-resource loganalytics 'Microsoft.OperationalInsights/workspaces@2023-03-01' = {
+resource loganalytics 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   name: loganalyticsWorkspaceName
   location: location
   sku: {
