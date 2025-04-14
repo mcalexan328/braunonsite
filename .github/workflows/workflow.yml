@@ -1,5 +1,5 @@
-name: deploy-toy-website
-concurrency: toy-company
+name: braunonsite
+concurrency: braunonsite
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 env:
-    AZURE_RESOURCEGROUP_NAME: ToyWebsite
+    AZURE_RESOURCEGROUP_NAME: braunonsite
     ENVIRONMENT: nonprod
 
 jobs:
