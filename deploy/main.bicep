@@ -13,9 +13,10 @@ param appInsightsName string = 'appinsights-${appSuffix}'
 @description('The name of the Container App Environment')
 param containerAppEnvironmentName string = 'env${appSuffix}'
 
-var containerAppName = 'webserver'
+@description('The container image to be used')
+param containerImage string = 'braunonsite.azurecr.io/webserver:latest'
 
-var containerAppName2 = 'webserver2'
+var containerAppName = 'braunonsite-webserver-${appSuffix}'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
@@ -51,7 +52,7 @@ resource env 'Microsoft.App/managedEnvironments@2023-08-01-preview' = {
 }
 
 resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
-  name: containerAppName2
+  name: containerAppName
   location: location
   properties: {
     managedEnvironmentId: env.id
@@ -66,21 +67,21 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
             weight: 100
           }
         ]
-      }
+    }
     }
     template: {
       containers: [
         {
           name: containerAppName
-          image: 'braunonsite.azurecr.io/webserver:latest'
+          image: containerImage
           resources: {
-            cpu: json('0.25')
+            cpu: '0.25'
             memory: '0.5Gi'
           }
         }
       ]
       scale: {
-        minReplicas: 0
+        minReplicas: 1
         maxReplicas: 3
       }
     }
