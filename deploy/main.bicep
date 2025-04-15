@@ -70,7 +70,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
       containers: [
         {
           name: containerAppName
-          image: 'braunonsite.azurecr.io/braunonsite:latest'
+          image: 'braunonsite.azurecr.io/webserver:v1'
           resources: {
             cpu: json('1.0')
             memory: '2Gi'
