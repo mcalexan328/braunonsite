@@ -75,7 +75,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
           name: containerAppName
           image: containerImage
           resources: {
-            cpu: '0.25'
+            cpu: json('0.25')
             memory: '0.5Gi'
           }
         }
