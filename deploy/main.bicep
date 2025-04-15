@@ -13,7 +13,7 @@ param appInsightsName string = 'appinsights-${appSuffix}'
 @description('The name of the Container App Environment')
 param containerAppEnvironmentName string = 'env${appSuffix}'
 
-var containerAppName = 'braunonsite'
+var containerAppName = 'webserver'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
@@ -73,13 +73,13 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
           image: 'braunonsite.azurecr.io/webserver:latest'
           resources: {
             cpu: json('1.0')
-            memory: '2Gi'
+            memory: '1Gi'
           }
         }
       ]
       scale: {
         minReplicas: 0
-        maxReplicas: 2
+        maxReplicas: 3
       }
     }
   }
