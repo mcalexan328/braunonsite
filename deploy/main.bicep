@@ -15,6 +15,8 @@ param containerAppEnvironmentName string = 'env${appSuffix}'
 
 var containerAppName = 'webserver'
 
+var containerAppName2 = 'webserver2'
+
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
   location: location
@@ -49,7 +51,7 @@ resource env 'Microsoft.App/managedEnvironments@2023-08-01-preview' = {
 }
 
 resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
-  name: containerAppName
+  name: containerAppName2
   location: location
   properties: {
     managedEnvironmentId: env.id
