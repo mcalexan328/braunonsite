@@ -1,5 +1,6 @@
-name: braunonsite
+name: deploybicep
 # This workflow is designed to deploy infrastructure as code (IAC) using Azure Bicep templates.
+
 # This workflow is triggered on push to the main branch and when changes are made to the deploy directory.
 on:
   push:
