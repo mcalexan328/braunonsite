@@ -14,6 +14,7 @@ permissions:
 
 env:
     AZURE_RESOURCEGROUP_NAME: braunonsite
+    AZURE_ACR_REGISTRY: braunonsite.azurecr.io
 
 jobs:
   deploy:
