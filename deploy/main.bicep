@@ -16,16 +16,13 @@ param containerAppEnvironmentName string = 'env${appSuffix}'
 @description('The container image to be used')
 param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
+@secure()
 param keyVaultName string
+@secure()
 param acrPasswordSecretName string
 
 
 var containerAppName = 'braunwebsite'
-
-resource keyVault 'Microsoft.KeyVault/vaults@2021-06-01-preview' existing = {
-  name: keyVaultName
-}
-
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
