@@ -16,7 +16,16 @@ param containerAppEnvironmentName string = 'env${appSuffix}'
 @description('The container image to be used')
 param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
+param keyVaultName string
+param acrPasswordSecretName string
+
+
 var containerAppName = 'braunwebsite'
+
+resource keyVault 'Microsoft.KeyVault/vaults@2021-06-01-preview' existing = {
+  name: keyVaultName
+}
+
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
@@ -59,8 +68,8 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
     configuration: {
       secrets: [
         {
-          name: 'braunkey-acr-password'
-          value: '56nnBywfoExlhahMk2Py6UAxh0PfTjAPn1fiaJNknU+ACRDr1raN'
+          name: acrPasswordSecretName
+          value: '@Microsoft.KeyVault(VaultName=${keyVaultName};SecretName=${acrPasswordSecretName})'
         }
       ]
       registries: [
