@@ -63,7 +63,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
     configuration: {
       secrets: [
         {
-          name: 'braun-acr-password'
+          name: 'braunkey-acr-password'
           value: 'ac56nnBywfoExlhahMk2Py6UAxh0PfTjAPn1fiaJNknU+ACRDr1raN'
         }
       ]
