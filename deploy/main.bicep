@@ -61,17 +61,11 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
   properties: {
     managedEnvironmentId: env.id
     configuration: {
-      secrets: [
-        {
-          name: 'braunkey-acr-password'
-          value: acrPasswordSecretName
-        }
-      ]
       registries: [
         {
           server: 'braunonsite.azurecr.io'
           username: 'braunonsite'
-          passwordSecretRef: 'braunkey-acr-password'
+          passwordSecretRef: acrPasswordSecretName
         }
       ]
       ingress: {
