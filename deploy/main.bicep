@@ -60,7 +60,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
       secrets: [
         {
           name: 'braunkey-acr-password'
-          value: 'your-registry-password'
+          value: '56nnBywfoExlhahMk2Py6UAxh0PfTjAPn1fiaJNknU+ACRDr1raN'
         }
       ]
       registries: [
