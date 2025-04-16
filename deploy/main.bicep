@@ -71,7 +71,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
         {
           server: 'braunonsite.azurecr.io'
           username: 'braunonsite'
-          passwordSecretRef: acrPasswordSecretName
+          passwordSecretRef: 'braunkey-acr-password'
         }
       ]
       ingress: {
@@ -99,7 +99,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
       ]
       scale: {
         minReplicas: 1
-        maxReplicas: 3
+        maxReplicas: 2
       }
     }
   }

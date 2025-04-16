@@ -1,5 +1,5 @@
 name: teardown BraunOnsite
-# Deploys when push is made from frontend folder
+# Deploys at 12 PM EST (17:00 UTC) every day
 
 on:
   schedule:
