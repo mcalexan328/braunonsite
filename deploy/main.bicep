@@ -57,6 +57,13 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
   properties: {
     managedEnvironmentId: env.id
     configuration: {
+      registries: [
+        {
+          server: 'braunonsite.azurecr.io'
+          username: 'braunonsite' 
+          passwordSecretRef: '56nnBywfoExlhahMk2Py6UAxh0PfTjAPn1fiaJNknU+ACRDr1raN'    
+        }
+      ]
       ingress: {
         external: true
         targetPort: 80
