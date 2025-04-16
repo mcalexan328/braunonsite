@@ -14,7 +14,7 @@ param appInsightsName string = 'appinsights-${appSuffix}'
 param containerAppEnvironmentName string = 'env${appSuffix}'
 
 @description('The container image to be used')
-param containerImage string = 'braunonsite.azurecr.io/webserver:latest'
+param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
 var containerAppName = 'braunwebsite'
 
