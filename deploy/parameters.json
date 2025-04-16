@@ -9,9 +9,6 @@
         },
         "secretName": "acr-password"
       }
-    },
-    "keyvaultuser": {
-      "value": "braunonsite"  
     }
   }
 }

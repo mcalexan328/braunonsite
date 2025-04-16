@@ -18,8 +18,6 @@ param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
 @secure()
 param acrPasswordSecretName string
-@secure()
-param keyvaultuser string
 
 
 var containerAppName = 'braunwebsite'
@@ -65,7 +63,6 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
     configuration: {
       secrets: [
         {
-          name: keyvaultuser
           value: acrPasswordSecretName
         }
       ]
