@@ -32,4 +32,5 @@ jobs:
         resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
         template: ./deploy/main.bicep
         parameters: ./deploy/parameters.json
+        
 

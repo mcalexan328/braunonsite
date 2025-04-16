@@ -68,14 +68,14 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
       secrets: [
         {
           name: keyvaultuser
-          value: '@Microsoft.KeyVault(VaultName=${keyVaultName};SecretName=${acrPasswordSecretName})'
+          value: acrPasswordSecretName
         }
       ]
       registries: [
         {
           server: 'braunonsite.azurecr.io'
           username: 'braunonsite'
-          passwordSecretRef: 'acr-password'
+          passwordSecretRef: acrPasswordSecretName
         }
       ]
       ingress: {
