@@ -3,10 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "keyVaultName": {
-      "value": "braunkey"  // The name of your Key Vault
+      "value": "braunkey"  
     },
     "acrPasswordSecretName": {
-      "value": "acr-password"  // The name of the secret in the Key Vault
+      "value": "acr-password"  
+    },
+    "keyvaultuser": {
+      "value": "braunonsite"  
     }
   }
 }
