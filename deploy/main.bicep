@@ -16,13 +16,6 @@ param containerAppEnvironmentName string = 'env${appSuffix}'
 @description('The container image to be used')
 param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
-@description('Azure Key Vault name')
-param keyVaultName string = 'braunkey'
-
-@description('Azure Key Vault secret name for ACR password')
-param acrPasswordSecretName string = 'acr-password'
-
-
 var containerAppName = 'braunwebsite'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
@@ -68,7 +61,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
         {
           server: 'braunonsite.azurecr.io'
           username: 'braunonsite' 
-          passwordSecretRef: '${keyVaultName}-${acrPasswordSecretName}'
+          passwordSecretRef: 'braunkey-acr-password'
         }
       ]
       ingress: {
