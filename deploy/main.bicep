@@ -13,8 +13,8 @@ param appInsightsName string = 'appinsights-${appSuffix}'
 @description('The name of the Container App Environment')
 param containerAppEnvironmentName string = 'env${appSuffix}'
 
-@description('The name of the Azure Container Registry')
-param containerregistry string = 'braunonsite.azurecr.io/webserver:latest'
+@description('The container image to be used')
+param containerImage string = 'braunonsite.azurecr.io/webserver:latest'
 
 var containerAppName = 'braunwebsite'
 
@@ -73,15 +73,15 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
       containers: [
         {
           name: containerAppName
-          image: containerregistry
+          image: containerImage
           resources: {
-            cpu: json('1.0')
-            memory: '2Gi'
+            cpu: '0.5'
+            memory: '1.0Gi'
           }
         }
       ]
       scale: {
-        minReplicas: 0
+        minReplicas: 1
         maxReplicas: 3
       }
     }
