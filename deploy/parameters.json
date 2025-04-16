@@ -5,7 +5,7 @@
     "acrPasswordSecretName": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/resourcegroups/87ca812c-85db-47bb-8e25-e57fbeb195ef/BraunOnsite/providers/Microsoft.KeyVault/vaults/braunkey"
+          "id": "/subscriptions/87ca812c-85db-47bb-8e25-e57fbeb195ef/resourcegroups/BraunOnsite/providers/Microsoft.KeyVault/vaults/braunkey"
         },
         "secretName": "acr-password"
       }
