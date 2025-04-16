@@ -75,7 +75,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-08-01-preview' = {
         {
           server: 'braunonsite.azurecr.io'
           username: 'braunonsite'
-          passwordSecretRef: 'braunkey-acr-password'
+          passwordSecretRef: 'acr-password'
         }
       ]
       ingress: {
