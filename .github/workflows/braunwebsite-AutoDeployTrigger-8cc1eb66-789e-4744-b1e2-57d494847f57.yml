@@ -1,0 +1,44 @@
+name: Trigger auto deployment for braunwebsite
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ main ]
+    paths:
+    - '**'
+    - '.github/workflows/braunwebsite-AutoDeployTrigger-8cc1eb66-789e-4744-b1e2-57d494847f57.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.BRAUNWEBSITE_AZURE_CREDENTIALS }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}
+          _dockerfilePathKey_: _dockerfilePath_
+          registryUrl: braunonsite.azurecr.io
+          registryUsername: ${{ secrets.BRAUNWEBSITE_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.BRAUNWEBSITE_REGISTRY_PASSWORD }}
+          containerAppName: braunwebsite
+          resourceGroup: braunonsite
+          imageToBuild: braunonsite.azurecr.io/webserver:${{ github.sha }}
+          
+            
+
+     
+
