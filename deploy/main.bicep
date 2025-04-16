@@ -17,8 +17,6 @@ param containerAppEnvironmentName string = 'env${appSuffix}'
 param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 
 @secure()
-param keyVaultName string
-@secure()
 param acrPasswordSecretName string
 @secure()
 param keyvaultuser string
