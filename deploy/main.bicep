@@ -20,7 +20,7 @@ param containerImage string = 'braunonsite.azurecr.io/webserver:v1'
 param acrPasswordSecretName string
 
 
-var containerAppName = 'braunwebsite'
+var containerAppName = 'braunwebsite2'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsWorkspaceName
