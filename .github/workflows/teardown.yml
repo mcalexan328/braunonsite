@@ -3,7 +3,7 @@ name: teardown BraunOnsite
 
 on:
   schedule:
-    - cron: "0 17 * * *"  # 12 PM EST corresponds to 17:00 UTC
+    - cron: "0 2 * * *"  # 8 PM CT corresponds to 2:00 UTC
 
 env:
     AZURE_RESOURCEGROUP_NAME: braunonsite
