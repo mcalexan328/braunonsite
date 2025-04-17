@@ -1,10 +1,10 @@
 name: teardown BraunOnsite
-# Deploys at 12 PM EST (17:00 UTC) every day
+# Deploys at 1 PM CT (18:00 UTC) every day
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"  # Runs every 5 minutes for testing
+    - cron: "0 18 * * *"  # 1 PM CT corresponds to 6:00 PM UTC
 
 permissions:
   id-token: write
