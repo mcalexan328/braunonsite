@@ -4,7 +4,7 @@ name: teardown BraunOnsite
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 18 * * *"  # 1 PM CT corresponds to 6:00 PM UTC
+    - cron: "0 * * * *"  # 1 PM CT corresponds to 6:00 PM UTC
 
 permissions:
   id-token: write
